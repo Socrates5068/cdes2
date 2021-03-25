@@ -42,7 +42,10 @@ Route::get('galeria', 'RoutesController@galery')->name('pages.galeria');
 Route::get('documentos', 'RoutesController@documentos')->name('pages.documentos');
 
 
-
+#Leyes
+Route::get('/ley', 'LeyesController@index')->name('leyes.index');
+Route::get('/resolucion', 'LeyesController@index2')->name('leyes.index2');
+Route::get('ley/{leye}', 'LeyesController@show')->name('leyes.show');
 
 Route::get('noticia/{post}', 'PostsController@show')->name('posts.show');
 Route::get('noticias', 'PostsController@index')->name('posts.index');
@@ -57,6 +60,7 @@ Route::group(['prefix' => 'admin',
         Route::get('/', 'AdminController@index')->name('dashboard');
 
         Route::resource('posts', 'PostsController', ['except' => 'show', 'as' => 'admin']);
+        Route::resource('leyes', 'LeyesController', ['except' => 'show', 'as' => 'admin']);
         Route::resource('users', 'UsersController', ['as' => 'admin']);
         Route::middleware('role:Admin')
             ->put('users/{user}/roles', 'UsersRolesController@update')
@@ -109,18 +113,6 @@ Route::get('/ODONTOLOGO', function () { return view('convocatorias.ODONTOLOGO');
 Route::get('/pdf', function () {
     return view('datos.pdf');
 });
-
-//Leyes, decretos y otros
-Route::get('/leyes', function () { return view('decretos.index'); });
-Route::get('/decretos/ley1152', function () { return view('decretos.ley1152'); });
-
-//Resoluciones
-Route::get('/resolucion', function () { return view('resoluciones.index'); });
-Route::get('/resoluciones/rm132', function () { return view('resoluciones.rm132'); });
-
-
-
-
 
 // Authentication Routes...
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');

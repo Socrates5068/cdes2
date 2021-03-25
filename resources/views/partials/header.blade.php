@@ -58,8 +58,8 @@
                         <div class="dropdown-menu">
                             <a class="dropdown-item {{ request()->is('sedes/antecedentes') ? 'active' : '' }}" href="{{ route('pages.antecedentes') }}">Antecedentes</a>
                             <a class="dropdown-item {{ request()->is('sedes/mision') ? 'active' : '' }}" href="{{ route('pages.mision') }}">Misión y Visión</a>
-                            <a class="dropdown-item {{ request()->is('leyes') ? 'active' : '' }}" href="/leyes">Leyes, Decretos y Otros</a>
-                            <a class="dropdown-item {{ request()->is('resolucioness') ? 'active' : '' }}" href="/resolucion">Resoluciones</a>
+                            <a class="dropdown-item {{ request()->is('ley') ? 'active' : '' }}" href="/ley">Leyes, Decretos y Otros</a>
+                            <a class="dropdown-item {{ request()->is('resolucion') ? 'active' : '' }}" href="/resolucion">Resoluciones</a>
 {{--                        <a class="dropdown-item {{ request()->is('sedes/autoridades') ? 'active' : '' }}" href="{{ route('pages.autoridades') }}">Autoridades</a>--}}
                             <a class="dropdown-item {{ request()->is('sedes/organigrama') ? 'active' : '' }}" href="{{ route('pages.organigrama') }}">Organigrama</a>
                             <a class="dropdown-item {{ request()->is('sedes/telefonosip') ? 'active' : '' }}" href="{{ route('pages.telefonosip') }}">Teléfonos IP</a>

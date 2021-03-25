@@ -117,18 +117,18 @@
         </ul>
     </li>
     
-    <li class="treeview {{ request()->is('denuncias*') ? 'active' : '' }}">
-        <a href="#"><i class="fa fa-newspaper-o"></i> <span>Denuncias</span>
+    <li class="treeview {{ request()->is('admin/leyes*') ? 'active' : '' }}">
+        <a href="#"><i class="fa fa-newspaper-o"></i> <span>Leyes, Decretos y Otros</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
         </a>
         <ul class="treeview-menu">
-            <li {{ request()->is('denuncias/buscar') ? 'class=active' : '' }}>
-                <a href="{{ route('denuncias.buscar') }}"><i class="fa fa-eye"></i>Buscar denuncia</a>
+            <li {{ request()->is('admin/leyes') ? 'class=active' : '' }}>
+                <a href="{{ route('admin.leyes.index') }}"><i class="fa fa-eye"></i>Ver todos</a>
             </li>
-            <li {{ request()->is('/denuncias') ? 'class=active' : '' }}>
-                <a href="{{ route('denuncias.index') }}"><i class="fa fa-pencil"></i>Administrar denuncias</a>
+            <li {{ request()->is('admin/create') ? 'class=active' : '' }}>
+                <a href="{{ route('admin.leyes.create') }}"><i class="fa fa-plus"></i>Crear nuevo</a>
             </li>
         </ul>
     </li>

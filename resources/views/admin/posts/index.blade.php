@@ -3,7 +3,7 @@
 @section('header')
     <h1>
         Artículos
-        <small>asfas</small>
+        <small>listado</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('dashboard') }}"><i class="fa fa-dashboard"></i> Inicio</a></li>

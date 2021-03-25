@@ -3,7 +3,7 @@
 @section('header')
     <h1>
         Leyes, Decretos y Otros
-        <small>crear</small>
+        <small>editar</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('dashboard') }}"><i class="fa fa-dashboard"></i> Inicio</a></li>
@@ -12,16 +12,15 @@
 @endsection
 
 @section('content')
-
-    <form method="post" action="{{ route('admin.leyes.store') }}" enctype="multipart/form-data" novalidate>
-        {{ csrf_field() }}
+    <form method="post" action="{{ route('admin.leyes.update', $leye) }}" enctype="multipart/form-data" novalidate>
+        {{ csrf_field() }} {{ method_field('PUT') }}
         <div class="col-md-10">
             <div class="box box-primary">
                 <div class="box-body">
                     <div class="form-group {{ $errors->has('nombre') ? 'has-error' : '' }}">
                         <label for="nombre">Nombre del pdf</label>
                         <input type="text" name="nombre" id="nombre" class="form-control"
-                               value="{{ old('nombre') }}"
+                               value="{{ old('nombre', $leye->nombre) }}"
                                placeholder="Ingresa aqui el nombre de la ley, decreto y otros">
                         {!! $errors->first('nombre', '<span class="help-block">:message</span>') !!}
 
@@ -34,10 +33,16 @@
                                placeholder="Ingresa aqui el nombre de la ley, decreto y otros"> --}}
                                <br>
                         <select name="categoria" id="categoria">
-                            <option value="leyes">Leyes, decretos y Otros</option>
-                            <option value="resoluciones">Resoluciones</option>
+                            <option value="{{ old('categoria', $leye->categoria) }}">Leyes, decretos y Otros</option>
+                            <option value="{{ old('categoria', $leye->categoria) }}">Resoluciones</option>
                         </select>
                         {!! $errors->first('categoria', '<span class="help-block">:message</span>') !!}
+
+                    </div>
+
+                    <div class="form-group {{ $errors->has('pdf') ? 'has-error' : '' }}">
+                        <label for="pdf">Archivo actual</label> <br>
+                        <a href="{{ '/leyes/'.$leye->ruta }}"> {{$leye->nombre.'pdf'}}</a>
 
                     </div>
 
@@ -51,7 +56,7 @@
 
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary btn-block">
-                            Guardar PDF
+                            Actualizar PDF
                         </button>
                     </div>
                 </div>

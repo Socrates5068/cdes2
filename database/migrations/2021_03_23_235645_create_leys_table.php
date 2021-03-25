@@ -15,8 +15,9 @@ class CreateLeysTable extends Migration
     {
         Schema::create('leys', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nombre', 45);
-            $table->string('categoría', 45);
+            $table->string('nombre');
+            $table->string('categoria');
+            $table->string('ruta');
             $table->timestamps();
         });
     }
