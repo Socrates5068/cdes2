@@ -32,11 +32,19 @@
                                value="{{ old('categoria') }}"
                                placeholder="Ingresa aqui el nombre de la ley, decreto y otros"> --}}
                                <br>
-                        <select name="categoria" id="categoria">
-                            <option value="{{ old('categoria', $leye->categoria) }}">Leyes, decretos y Otros</option>
-                            <option value="{{ old('categoria', $leye->categoria) }}">Resoluciones</option>
-                        </select>
-                        {!! $errors->first('categoria', '<span class="help-block">:message</span>') !!}
+                        @if($leye->categoria == 'leyes')
+                            <select name="categoria" id="categoria">
+                                <option value="leyes">Leyes, decretos y Otros</option>
+                                <option value="resoluciones">Resoluciones</option>
+                            </select>
+                            {!! $errors->first('categoria', '<span class="help-block">:message</span>') !!}
+                        @else
+                            <select name="categoria" id="categoria">
+                                <option value="resoluciones">Resoluciones</option>
+                                <option value="leyes">Leyes, decretos y Otros</option>
+                            </select>
+                            {!! $errors->first('categoria', '<span class="help-block">:message</span>') !!}
+                        @endif
 
                     </div>
 

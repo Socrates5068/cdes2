@@ -93,12 +93,17 @@ class LeyesController extends Controller
      */
     public function update(Request $request, Ley $leye)
     {
-        $leye->update($request->all());
 
-        $file = $request->file('pdf');
-        $name = time().$file->getClientOriginalName();
-        $file->move(public_path().'/leyes', $name);
-        $leye->ruta = $name;
+        $leye->nombre = $request->input('nombre');
+        $leye->categoria = $request->input('categoria');
+
+        if ($request->hasFile('pdf')) {
+            $file = $request->file('pdf');
+            $name = $file->getClientOriginalName();
+            $file->move(public_path().'/leyes', $name);
+            $leye->ruta = $name;
+            $leye->save();
+        }
         $leye->save();
 
         return redirect()

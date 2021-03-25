@@ -13,7 +13,7 @@
 
 @section('content')
     <div class="box-body">
-        <table id="posts-table" class="table table-bordered table-striped">
+        <table id="leyes-table" class="table table-bordered table-striped">
             <thead>
             <tr>
                 <th>Id</th>
@@ -52,3 +52,27 @@
         </table>
     </div>
 @endsection
+
+@push('styles')
+<!-- DataTables -->
+<link rel="stylesheet" href="/adminlte/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+@endpush
+
+@push('scripts')
+<!-- DataTables -->
+<script src="/adminlte/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="/adminlte/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script>
+    $(function () {
+        $('#leyes-table').DataTable({
+            'paging'      : true,
+            'lengthChange': false,
+            'searching'   : false,
+            'ordering'    : true,
+            'info'        : true,
+            'autoWidth'   : false
+        })
+    })
+</script>
+
+@endpush

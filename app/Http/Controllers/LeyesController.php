@@ -21,7 +21,7 @@ class LeyesController extends Controller
     public function index2()
     {
         $leyes = Ley::all();
-        return view('leyes.index', compact('leyes'));
+        return view('leyes.index2', compact('leyes'));
     }
 
     /**
