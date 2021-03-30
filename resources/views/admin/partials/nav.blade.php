@@ -133,4 +133,20 @@
         </ul>
     </li>
 
+    <li class="treeview {{ request()->is('admin/leyes*') ? 'active' : '' }}">
+        <a href="#"><i class="fa fa-newspaper-o"></i> <span>Pop up</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+        </a>
+        <ul class="treeview-menu">
+            <li {{ request()->is('admin/modals') ? 'class=active' : '' }}>
+                <a href="{{ route('admin.modals.index') }}"><i class="fa fa-eye"></i>Ver todos</a>
+            </li>
+            <li {{ request()->is('admin/create') ? 'class=active' : '' }}>
+                <a href="{{ route('admin.modals.create') }}"><i class="fa fa-plus"></i>Crear nuevo</a>
+            </li>
+        </ul>
+    </li>
+
 </ul>

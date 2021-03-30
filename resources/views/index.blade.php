@@ -27,7 +27,29 @@
             
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner">
-                    <div class="item active"> <!-- solo este item active -->
+                    @php
+                        use App\Modal;
+                        $modals = Modal::all();
+                        $con = 1;
+                    @endphp
+
+                    @foreach($modals as $modal)
+                        @if($con == 1)
+                            <div class="item active">
+                                <img src="{{'http://localhost:8000/modal/'.$modal->ruta}}"
+                                alt="" style="width: 800px">
+                            </div>
+                            @php
+                                $con++;
+                            @endphp
+                        @else
+                            <div class="item">
+                                <img src="{{'http://localhost:8000/modal/'.$modal->ruta}}"
+                                alt="" style="width: 800px">
+                            </div>
+                        @endif
+                    @endforeach
+                    {{-- <div class="item active"> <!-- solo este item active -->
                         <img src="https://sedespotosi.com/modal/emergencia.jpg"
                         alt="" style="width: 800px">
                     </div>
@@ -46,7 +68,7 @@
                     <div class="item">
                         <img src="https://sedespotosi.com/modal/reportebolivia.jpg"
                         alt="" style="width: 800px">
-                    </div>
+                    </div> --}}
                 </div>
             
                 <!-- Controls -->
