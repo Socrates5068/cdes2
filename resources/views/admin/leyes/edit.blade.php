@@ -50,7 +50,7 @@
 
                     <div class="form-group {{ $errors->has('pdf') ? 'has-error' : '' }}">
                         <label for="pdf">Archivo actual</label> <br>
-                        <a href="{{ '/leyes/'.$leye->ruta }}"> {{$leye->nombre.'pdf'}}</a>
+                        <a href="{{ '/storage/'.$leye->ruta }}"> {{$leye->nombre.'pdf'}}</a>
 
                     </div>
 

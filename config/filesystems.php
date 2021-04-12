@@ -54,6 +54,12 @@ return [
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
+        'publicModal' => [
+            'driver' => 'local',
+            'root' => public_path().'/modal',
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+        ],
         'publicImages' => [
             'driver' => 'local',
             'root' => public_path().'/uploads/images',

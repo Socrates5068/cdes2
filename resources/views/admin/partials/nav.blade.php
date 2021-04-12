@@ -127,13 +127,13 @@
             <li {{ request()->is('admin/leyes') ? 'class=active' : '' }}>
                 <a href="{{ route('admin.leyes.index') }}"><i class="fa fa-eye"></i>Ver todos</a>
             </li>
-            <li {{ request()->is('admin/create') ? 'class=active' : '' }}>
+            <li {{ request()->is('admin/leyes/create') ? 'class=active' : '' }}>
                 <a href="{{ route('admin.leyes.create') }}"><i class="fa fa-plus"></i>Crear nuevo</a>
             </li>
         </ul>
     </li>
 
-    <li class="treeview {{ request()->is('admin/leyes*') ? 'active' : '' }}">
+    <li class="treeview {{ request()->is('admin/modals*') ? 'active' : '' }}">
         <a href="#"><i class="fa fa-newspaper-o"></i> <span>Pop up</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
@@ -143,9 +143,25 @@
             <li {{ request()->is('admin/modals') ? 'class=active' : '' }}>
                 <a href="{{ route('admin.modals.index') }}"><i class="fa fa-eye"></i>Ver todos</a>
             </li>
-            <li {{ request()->is('admin/create') ? 'class=active' : '' }}>
+            <li {{ request()->is('admin/modals/create') ? 'class=active' : '' }}>
                 <a href="{{ route('admin.modals.create') }}"><i class="fa fa-plus"></i>Crear nuevo</a>
             </li>
+        </ul>
+    </li>
+
+    <li class="treeview {{ request()->is('admin/inscripcions*') ? 'active' : '' }}">
+        <a href="#"><i class="fa fa-newspaper-o"></i> <span>Inscripciones</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+        </a>
+        <ul class="treeview-menu">
+            <li {{ request()->is('admin/inscripcions') ? 'class=active' : '' }}>
+                <a href="{{ route('admin.inscripcions.index') }}"><i class="fa fa-eye"></i>Ver Todos</a>
+            </li>
+            {{-- <li {{ request()->is('admin/inscripcions/search') ? 'class=active' : '' }}>
+                <a href="{{ route('admin.inscripcions.search') }}"><i class="fa fa-plus"></i>Buscar</a>
+            </li> --}}
         </ul>
     </li>
 

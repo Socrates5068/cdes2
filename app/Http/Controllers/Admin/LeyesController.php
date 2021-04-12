@@ -47,13 +47,14 @@ class LeyesController extends Controller
         if ($request->hasFile('pdf')) {
             $file = $request->file('pdf');
             $name = $file->getClientOriginalName();
-            $file->move(public_path().'/leyes', $name);
+            //$file->move(public_path().'/leyes', $name);
+            $path = $request->file('pdf')->storeAs('leyes', $name);
         }
         
         $leypdf = new Ley();
         $leypdf->nombre = $request->input('nombre');
         $leypdf->categoria = $request->input('categoria');
-        $leypdf->ruta = $name;
+        $leypdf->ruta = $path;
         $leypdf->save();
         
         $leyes = Ley::all();
@@ -100,8 +101,9 @@ class LeyesController extends Controller
         if ($request->hasFile('pdf')) {
             $file = $request->file('pdf');
             $name = $file->getClientOriginalName();
-            $file->move(public_path().'/leyes', $name);
-            $leye->ruta = $name;
+            //$file->move(public_path().'/leyes', $name);
+            $path = $request->file('pdf')->storeAs('leyes', $name);
+            $leye->ruta = $path;
             $leye->save();
         }
         $leye->save();

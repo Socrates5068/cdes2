@@ -14,7 +14,7 @@
                             <td><h5 class="description">{{$leye->nombre}}</h5></td>
                             <td class="pull-right">
                                 <a class="btn btn-dark" href="{{ route('leyes.show', $leye) }}" role="button">Ver</a>
-                                <a class="btn btn-dark" href="{{ '/leyes/'.$leye->ruta}}" role="button">Descargar</a></td>
+                                <a class="btn btn-dark" href="{{ '/storage/'.$leye->ruta}}" role="button">Descargar</a></td>
                         </tr>
                     @endif    
                 @endforeach

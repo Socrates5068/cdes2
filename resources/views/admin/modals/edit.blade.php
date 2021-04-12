@@ -28,7 +28,7 @@
 
                     <div class="form-group {{ $errors->has('imagen') ? 'has-error' : '' }}">
                         <label for="imagen">Imagen actual</label> <br>
-                        <img src="{{ '/modal/'.$modal->ruta }}" width="200">
+                        <img src="{{ '/storage/'.$modal->ruta }}" width="200">
                     </div>
 
                     <div class="form-group {{ $errors->has('imagen') ? 'has-error' : '' }}">

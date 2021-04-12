@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Modal;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class ModalsController extends Controller
 {
@@ -44,9 +46,11 @@ class ModalsController extends Controller
         ]);
 
         if ($request->hasFile('imagen')) {
-            $file = $request->file('imagen');
-            $name = $file->getClientOriginalName();
-            $file->move(public_path().'/modal', $name);
+            //$file = $request->file('imagen');
+            //$name = $file->getClientOriginalName();
+            //$file->move(public_path().'/modal', $name);
+            //Storage::disk('publicModal')->put($name, File::get($file));
+            $name = $request->file('imagen')->store('modal');
         }
 
         $modals = new Modal();
@@ -93,9 +97,10 @@ class ModalsController extends Controller
         $modal->nombre = $request->input('nombre');
 
         if ($request->hasFile('imagen')) {
-            $file = $request->file('imagen');
-            $name = $file->getClientOriginalName();
-            $file->move(public_path().'/modal', $name);
+            //$file = $request->file('imagen');
+            //$name = $file->getClientOriginalName();
+            //$file->move(public_path().'/modal', $name);
+            $name = $request->file('imagen')->store('modal');
             $modal->ruta = $name;
             $modal->save();
         }

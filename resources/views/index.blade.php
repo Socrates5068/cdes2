@@ -36,7 +36,7 @@
                     @foreach($modals as $modal)
                         @if($con == 1)
                             <div class="item active">
-                                <img src="{{'http://localhost:8000/modal/'.$modal->ruta}}"
+                                <img src="{{'https://sedespotosi.com/storage/'.$modal->ruta}}"
                                 alt="" style="width: 800px">
                             </div>
                             @php
@@ -44,7 +44,7 @@
                             @endphp
                         @else
                             <div class="item">
-                                <img src="{{'http://localhost:8000/modal/'.$modal->ruta}}"
+                                <img src="{{'https://sedespotosi.com/storage/'.$modal->ruta}}"
                                 alt="" style="width: 800px">
                             </div>
                         @endif
